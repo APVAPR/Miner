@@ -15,6 +15,18 @@ class MyButton(tk.Button):
         return f'{self.is_mine} [{self.x}] [{self.y}] {self.number} '
 
 
+class MyButton(tk.Button):
+
+    def __init__(self, master, x, y, *args, **kwargs):
+        super(MyButton, self).__init__(master, *args, **kwargs)
+        self.x = x
+        self.y = y
+        self.is_mine = False
+
+    def __repr__(self):
+        return 'But'
+
+
 class MineSweeper:
     window = tk.Tk()
     ROW = 10
@@ -30,8 +42,12 @@ class MineSweeper:
         for i in range(MineSweeper.ROW):
             temp = []
             for j in range(MineSweeper.COLUMNS):
+<<<<<<< HEAD
                 btn = MyButton(MineSweeper.window, x=i, y=j, number=count)
                 btn.config(command=lambda button=btn: self.click(button))
+=======
+                btn = MyButton(MineSweeper.window, width=3, font='Clibry 15 bold')
+>>>>>>> 3092c02fa4df5cf22b8ac3f4efda18eeb404a5b0
                 temp.append(btn)
                 count += 1
             self.buttons.append(temp)
@@ -58,6 +74,7 @@ class MineSweeper:
         for row_btn in self.buttons:
             print(row_btn)
 
+<<<<<<< HEAD
     def insert_mines(self):
         index_mines = self.get_mines_places()
         for row_btn in self.buttons:
@@ -75,13 +92,18 @@ class MineSweeper:
         shuffle(indexes)
         return indexes[:MineSweeper.MINES]
 
+=======
+>>>>>>> 3092c02fa4df5cf22b8ac3f4efda18eeb404a5b0
     def start(self):
         """
         Метод запуска основного цикла игры
         """
         self.create_wigets()
+<<<<<<< HEAD
         self.insert_mines()
         self.get_mines_places()
+=======
+>>>>>>> 3092c02fa4df5cf22b8ac3f4efda18eeb404a5b0
         self.print_buttons()
         game.window.mainloop()
 
